@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-commitMessage="[Dipesh] modify emailTestCasesAdded"
-currentBranchName="UC3EmailTest"
-newBranchName="UC4MobileNumberTest"
+commitMessage="[Dipesh] modify phoneTestCasesAdded"
+currentBranchName="UC4MobileNumberTest"
+newBranchName="UC5PasswordTest"
 echo --------git status---------
 echo
 git status

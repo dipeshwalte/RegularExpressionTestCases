@@ -39,5 +39,17 @@ namespace UnitTestRegex
             Assert.AreEqual(uv.ValidatePattern(pattern, "abc@bl"), false);
             Assert.AreEqual(uv.ValidatePattern(pattern, "abc.xyz@bl.co.in"), true);
         }
+
+        [Test]
+        public void GivenMobileCheckIfValid()
+        {
+            string pattern = @"^[0-9]{2}\s[0-9]{10}$";
+            Assert.AreEqual(uv.ValidatePattern(pattern, "54 942242131"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "91 9422421317"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "9 9422421317"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "9422421315"), false);
+        }
+
+
     }
 }
