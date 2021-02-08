@@ -91,5 +91,32 @@ namespace UnitTestRegex
             Assert.AreEqual(uv.ValidatePattern(pattern, "1A!2345678"), true);
             Assert.AreEqual(uv.ValidatePattern(pattern, "1!!Asrwerds"), false);
         }
+
+        public void GivenEmailAllCasesCheckIfValid()
+        {
+            string pattern = @"^[0-9a-zA-Z]+[\-\.+]?[A-Za-z0-9]+@[0-9A-Za-z]+\.[a-zA-Z]{2,4}\.?([a-zA-Z]{2,4})?$";
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc..2002@gmail.com"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc@abc@gmail.com"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc.100@yahoo.com"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc.@gmail.com"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc@.com.my"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc@1.com"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc123@gmail.a"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc123@.com.com"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc@yahoo.com"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc.100@abc.com.au"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc-100@yahoo.com"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc-100@abc.net"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc()*@gmail.com"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc123@.com"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc@%*.com"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc111@abc.com"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc@gmail.com.aa.au"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc@gmail.com.com"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc+100@gmail.com"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abc@gmail.com.1a"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, ".abc@abc.com"), false);
+        }
     }
 }
