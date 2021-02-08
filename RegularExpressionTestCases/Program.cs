@@ -5,7 +5,7 @@ namespace RegularExpressionTestCases
     using System;
     using System.Text.RegularExpressions;
 
-    class Program
+    public class UserValidation
         {
             static void ValidatePatterns(string pattern, string[] inputs)
             {
@@ -20,11 +20,16 @@ namespace RegularExpressionTestCases
                 }
                 Console.WriteLine("-----------------------------------------");
             }
+            public bool ValidatePattern(string pattern, string input)
+            {
+                Regex re = new Regex(pattern);
+                return re.IsMatch(input);
+            }
             
             static void Main(string[] args)
             {
                 string firstNamePattern = "[A-Z][a-z]{2,}";
-                string[] firstNameInputs = { "dipesh", "Dipesh", "Di", "Dinesh", "Dha","Dhanesh" };
+                string[] firstNameInputs = { "dipesh", "Dipesh", "Di", "Dinesh", "Dha", "Dhanesh" };
                 ValidatePatterns(firstNamePattern, firstNameInputs);
 
                 string lastNamePattern = "[A-Z][a-z]{2,}";
