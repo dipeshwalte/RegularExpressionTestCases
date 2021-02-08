@@ -24,7 +24,7 @@ namespace RegularExpressionTestCases
             static void Main(string[] args)
             {
                 string firstNamePattern = "[A-Z][a-z]{2,}";
-                string[] firstNameInputs = { "dipesh", "Dipesh", "Di", "Dinesh", "Dha" };
+                string[] firstNameInputs = { "dipesh", "Dipesh", "Di", "Dinesh", "Dha","Dhanesh" };
                 ValidatePatterns(firstNamePattern, firstNameInputs);
 
                 string lastNamePattern = "[A-Z][a-z]{2,}";
