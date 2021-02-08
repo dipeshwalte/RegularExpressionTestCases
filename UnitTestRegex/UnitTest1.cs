@@ -81,5 +81,15 @@ namespace UnitTestRegex
             Assert.AreEqual(uv.ValidatePattern(pattern, "1A!2345678"), true);
             Assert.AreEqual(uv.ValidatePattern(pattern, "1!!Asrwerds"), true);
         }
+        [Test]
+        public void GivenPasswordWithExactly1SpecialCheckIfValid()
+        {
+            string pattern = @"(?=.*[A-Z])(?=.*[0-9])(?=[^.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\]*[.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\][^.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\]*$)[0-9A-Za-z!@#\$%\^&\*\(\)\-\+]{8,}";
+            Assert.AreEqual(uv.ValidatePattern(pattern, "12345678A"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "fdsafade"),false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "fdsaf"), false);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "1A!2345678"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "1!!Asrwerds"), false);
+        }
     }
 }

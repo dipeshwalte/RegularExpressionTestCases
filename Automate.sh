@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-commitMessage="[Dipesh] modify NumericPasswordTested"
-currentBranchName="UC7NumericPasswordTest"
-newBranchName="UC8Exactly1SpecialPasswordTest"
+commitMessage="[Dipesh] modify Exactly1SpecialCharPasswordTested"
+currentBranchName="UC8Exactly1SpecialPasswordTest"
+newBranchName="UC9AllEmailTestCases"
 echo --------git status---------
 echo
 git status
