@@ -34,7 +34,7 @@ namespace UnitTestRegex
         public void GivenEmailCheckIfValid()
         {
             string pattern = @"^[0-9a-zA-Z]+[\-\.+]?[A-Za-z0-9]*@[0-9A-Za-z]+\.[a-zA-Z]{2,4}\.?([a-zA-Z]{2,4})?$";
-            Assert.AreEqual(uv.ValidatePattern(pattern, "abcd@bc.com"), true);
+            Assert.AreEqual(uv.ValidatePattern(pattern, "abcde@bc.com"), true);
             Assert.AreEqual(uv.ValidatePattern(pattern, "abc@bl.co"), true);
             Assert.AreEqual(uv.ValidatePattern(pattern, "abc@bl"), false);
             Assert.AreEqual(uv.ValidatePattern(pattern, "abc.xyz@bl.co.in"), true);
